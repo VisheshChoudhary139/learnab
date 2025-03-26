@@ -1,0 +1,96 @@
+.App {
+  text-align: center;
+}
+.navbar-brand {
+  color: #C06500; 
+  font-weight: bold;
+}
+.nav-link {
+  color: #DF7F13 !important;
+  font-weight: 300; 
+}
+
+.nav-link.active, 
+.nav-link.dropdown-toggle { 
+  font-weight: 700; 
+}
+.dropdown-menu .dropdown-item {
+  color: #DF7F13 !important; 
+  font-weight: 500; 
+}
+
+.dropdown-item:hover {
+  background-color: #fbe5d4 !important; 
+  color: #DF7F13 !important;
+}
+
+  /* .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  } */
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.form-control {
+  border: 2px solid #C06500;
+  color: #C06500;
+}
+
+.form-control:focus {
+  border-color: #C06500;
+  box-shadow: 0 0 5px #C06500;
+}
+
+.btn-outline-success {
+  color: #C06500;
+  border-color: #C06500;
+}
+
+.btn-outline-success:hover {
+  background-color: #C06500;
+  color: white;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.navbar-brand {
+  color: #C06500; 
+  font-weight: bold;
+  font-size: 28px;
+  font-family: 'Poppins', sans-serif; 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand:hover {
+  color: #DF7F13; 
+  transform: scale(1.05); 
+  transition: all 0.3s ease;
+}
+
