@@ -1,0 +1,166 @@
+/* Main Container */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    padding-bottom: 50px;
+    background-color: #f5f5f5;
+}
+
+/* Card Styles */
+.auth-card {
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #EC5228; /* Primary Color */
+}
+
+/* Header */
+.auth-header {
+    color: #EC5228 !important; /* Primary Color */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Title (Login Page Only) */
+.login-title {
+    color: #EC5228; /* Primary Color */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Form */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Input Group (Signup Page Only) */
+.input-group {
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Input Label (Signup Page Only) */
+.input-label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.auth-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+.auth-input:focus {
+    border-color: #161179; /* Green Effect */
+    outline: none;
+}
+
+/* Login Input */
+.login-input {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    font-size: 14px;
+    transition: border 0.3s ease;
+}
+
+.login-input:focus {
+    border-color: #161179; /* Green Effect */
+    outline: none;
+}
+
+/* Error Message (Signup Page Only) */
+.error-text {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Buttons */
+.auth-button, .login-button, .signup-button {
+    padding: 12px;
+    background-color: #EC5228; /* Primary Color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-button:hover, .login-button:hover, .signup-button:hover {
+    background-color: #161179; /* Green Effect */
+}
+
+/* Signup Link */
+.signup-link {
+    margin-top: 15px;
+    cursor: pointer;
+    color: #EC5228; /* Primary Color */
+    font-size: 14px;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+/* Link Text (Signup Page Only) */
+.link-text {
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.link {
+    color: #EC5228; /* Primary Color */
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Footer Text (Signup Page Only) */
+.footer-text {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #888;
+}
+
+/* Bottom Border for Forms */
+.auth-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Hover Effects */
+.auth-input:focus, .login-input:focus {
+    border-color: #161179; /* Green Effect */
+    outline: none;
+}
+
+.auth-button:active, .login-button:active, .signup-button:active {
+    background-color: #b86b10;
+}

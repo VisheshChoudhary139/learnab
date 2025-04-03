@@ -1,84 +1,64 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "./Quizzes.css"; // Import external CSS
 
 export class Quizzes extends Component {
-  static propTypes = {};
+  static propTypes = {
+    goBack: PropTypes.func.isRequired,
+  };
 
   handleReadAloud = () => {
-    const text = "Interactive Quizzes: Test your knowledge with our adaptive quiz system. Immediate feedback and detailed explanations help reinforce learning. Choose from multiple quiz formats to suit your style.";
+    const text =
+        "Interactive Quizzes: Test your knowledge with our adaptive quiz system. Immediate feedback and detailed explanations help reinforce learning. Choose from multiple quiz formats to suit your style.";
     const speech = new SpeechSynthesisUtterance(text);
     window.speechSynthesis.speak(speech);
   };
 
   render() {
+    const quizTypes = [
+      { title: "Multiple Choice", emoji: <img src="./school.png" alt="Multiple Choice" className="quiz-icon" />, description: "Traditional multiple choice questions with instant feedback." },
+      { title: "Fill-in-the-Blank", emoji: <img src="./new-document.png" alt="Fill-in-the-Blank" className="quiz-icon" />, description: "Type your answers for better retention and recall." },
+      { title: "Matching", emoji: <img src="./puzzle.png" alt="Matching" className="quiz-icon" />, description: "Drag and drop to match related concepts and terms." },
+    ];
+
     return (
-      <div style={{ backgroundColor: '#F5F5F5', minHeight: '100vh', paddingBottom: '50px' }}>
-        <div className="container mt-4">
-        <button className="btn btn-outline-secondary mb-3" onClick={this.props.goBack}>🔙 Back</button>
-          <div className="text-center mb-5">
-            <h1 style={{ color: '#C06500', fontWeight: 'bold', fontSize: '2.5rem' }}>Interactive Quizzes</h1>
-            <p style={{ color: '#666666', fontSize: '1.2rem' }}>Test your knowledge and track your progress.</p>
-            <button 
-              onClick={this.handleReadAloud} 
-              className="btn btn-success mt-3"
-              style={{
-                backgroundColor: '#C06500',
-                color: '#FFFFFF',
-                fontSize: '1.1rem',
-                padding: '12px 30px',
-                borderRadius: '25px',
-                transition: 'background-color 0.3s ease'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#A05200'}
-              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#C06500'}
-              aria-label="Read Description Aloud"
-            >
-              📢 Read Aloud
+        <div className="quizzes-container">
+          <div className="container mt-4">
+            <button className="back-btn" onClick={this.props.goBack}>
+              <img src="./preview.png" alt="Next" /> Back
             </button>
-          </div>
-
-          <div className="row">
-            <div className="col-md-4 mb-4">
-              <div className="card p-3 shadow-sm h-100" style={{ backgroundColor: '#FFFFFF', borderRadius: '15px' }}>
-                <div className="text-center">
-                  <h3 style={{ color: '#C06500', fontWeight: 'bold' }}>Multiple Choice</h3>
-                  <span style={{ fontSize: '2rem' }}>🔠</span>
-                </div>
-                <p style={{ color: '#666666' }}>Traditional multiple choice questions with instant feedback.</p>
-                <div className="mt-auto">
-                  <button className="btn btn-outline-warning w-100" style={{ borderColor: '#C06500', color: '#C06500' }}>Try Sample</button>
-                </div>
-              </div>
+            <div className="text-center mb-5">
+              <h1 className="quizzes-title">Interactive Quizzes</h1>
+              <p className="quizzes-subtitle">Test your knowledge and track your progress.</p>
+              <button
+                  onClick={this.handleReadAloud}
+                  className="read-aloud-btn"
+                  aria-label="Read Description Aloud"
+              >
+                <img src="./megaphone.png" alt="Read Aloud" /> Read Aloud
+              </button>
             </div>
 
-            <div className="col-md-4 mb-4">
-              <div className="card p-3 shadow-sm h-100" style={{ backgroundColor: '#FFFFFF', borderRadius: '15px' }}>
-                <div className="text-center">
-                  <h3 style={{ color: '#C06500', fontWeight: 'bold' }}>Fill-in-the-Blank</h3>
-                  <span style={{ fontSize: '2rem' }}>✍️</span>
-                </div>
-                <p style={{ color: '#666666' }}>Type your answers for better retention and recall.</p>
-                <div className="mt-auto">
-                  <button className="btn btn-outline-warning w-100" style={{ borderColor: '#C06500', color: '#C06500' }}>Try Sample</button>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-4 mb-4">
-              <div className="card p-3 shadow-sm h-100" style={{ backgroundColor: '#FFFFFF', borderRadius: '15px' }}>
-                <div className="text-center">
-                  <h3 style={{ color: '#C06500', fontWeight: 'bold' }}>Matching</h3>
-                  <span style={{ fontSize: '2rem' }}>↔️</span>
-                </div>
-                <p style={{ color: '#666666' }}>Drag and drop to match related concepts and terms.</p>
-                <div className="mt-auto">
-                  <button className="btn btn-outline-warning w-100" style={{ borderColor: '#C06500', color: '#C06500' }}>Try Sample</button>
-                </div>
-              </div>
+            <div className="row">
+              {quizTypes.map((quiz, index) => (
+                  <div key={index} className="col-md-4 mb-4">
+                    <div className="quiz-card">
+                      <div className="quiz-card-header">
+                        {quiz.emoji}
+                      </div>
+                      <div className="text-center">
+                        <h3 className="quiz-title">{quiz.title}</h3>
+                      </div>
+                      <p className="quiz-description">{quiz.description}</p>
+                      <div className="mt-auto">
+                        <button className="quiz-button">Try Sample</button>
+                      </div>
+                    </div>
+                  </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }

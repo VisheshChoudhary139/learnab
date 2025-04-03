@@ -1,65 +1,54 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
+import "./Footer.css";
 
-export class Footer extends Component {
-  static propTypes = {
-    onNavigate: PropTypes.func.isRequired, 
-  };
+const Footer = ({ onNavigate }) => {
+  return (
+      <div className="footer-page">
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-left">
+              <button onClick={() => onNavigate("home")} className="footer-logo-title">
+                <img src="./logo_.png" alt="Logo" className="footer-logo" />
+                <span className="footer-title">Learnab</span>
+              </button>
+              <div className="footer-socials">
+                <a href="#" className="social-circle">
+                  <img src="./instagram.png" alt="Instagram" className="social-icon" />
+                </a>
+                <a href="#" className="social-circle">
+                  <img src="./facebook.png" alt="Facebook" className="social-icon" />
+                </a>
+                <a href="#" className="social-circle">
+                  <img src="./twitter.png" alt="Twitter" className="social-icon" />
+                </a>
+                <a href="#" className="social-circle">
+                  <img src="./telegram.png" alt="Telegram" className="social-icon" />
+                </a>
+              </div>
+            </div>
 
-  render() {
-    return (
-      <footer className="py-3 my-4">
-        <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-          <li className="nav-item">
-            <span
-              onClick={() => this.props.onNavigate("home")}
-              className="nav-link px-2 text-muted"
-              style={{ cursor: "pointer" }}
-            >
-              Home
-            </span>
-          </li>
-          <li className="nav-item">
-            <span
-              onClick={() => this.props.onNavigate("features")}
-              className="nav-link px-2 text-muted"
-              style={{ cursor: "pointer" }}
-            >
-              Features
-            </span>
-          </li>
-          <li className="nav-item">
-            <span
-              onClick={() => this.props.onNavigate("resources")}
-              className="nav-link px-2 text-muted"
-              style={{ cursor: "pointer" }}
-            >
-              Resources
-            </span>
-          </li>
-          <li className="nav-item">
-            <span
-              onClick={() => this.props.onNavigate("faqs")}
-              className="nav-link px-2 text-muted"
-              style={{ cursor: "pointer" }}
-            >
-              FAQs
-            </span>
-          </li>
-          <li className="nav-item">
-            <span
-              onClick={() => this.props.onNavigate("about")}
-              className="nav-link px-2 text-muted"
-              style={{ cursor: "pointer" }}
-            >
-              About us
-            </span>
-          </li>
-        </ul>
-        <p className="text-center text-muted">© 2025</p>
-      </footer>
-    );
-  }
-}
+            {/* Center Section for About Us & Contact Us */}
+            <div className="footer-center">
+              <button onClick={() => onNavigate("about")} className="footer-link">About Us</button>
+              <button onClick={() => onNavigate("about")} className="footer-link">Contact Us</button>
+            </div>
+
+            {/* New Right Section for Newsletter */}
+            <div className="footer-right">
+              <p className="footer-news-text">Get regular updates :</p>
+              <div className="newsletter">
+                <input type="email" placeholder="Your email" className="newsletter-input" />
+                <button type="submit" className="newsletter-submit">Submit</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <p className="footer-copyright">@learnable. All Rights Reserved.</p>
+          </div>
+        </footer>
+      </div>
+  );
+};
 
 export default Footer;

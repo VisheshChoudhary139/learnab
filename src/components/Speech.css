@@ -1,0 +1,256 @@
+
+@font-face {
+    font-family: 'TAN-Nimbus';
+    src: url('C:/Users/KIIT/MEDIHACKS/emergency-dispatch-ai/public/Fonts/TAN-NIMBUS.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Maleha';
+    src: url('C:\Users\KIIT\Desktop\learnab\public\Maleha.ttf') format('truetype');
+}
+
+.speech-container {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 2.222em;
+    display: flex;
+    margin-bottom: 2.222em;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Speech Card */
+.speech-card {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 3.333em;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    max-width: 80%;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.speech-card h3 {
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-family: 'TAN-Nimbus', sans-serif;
+    color: #EC5228;
+    position: relative;
+}
+
+
+/* Question Header */
+.speech-question {
+    color: #EC5228;
+    font-weight: bold;
+    margin-bottom: 1.111em;
+    font-size: 1.222em;
+}
+
+.speech-button-container {
+    display: flex;
+    flex-wrap: nowrap;  /* Prevent wrapping */
+    justify-content: space-between; /* Evenly distribute buttons */
+    gap: 0.555em; /* Add spacing between buttons */
+}
+
+/* Speech Button */
+.speech-button {
+    background-color: #EC5228;
+    color: #FFFFFF;
+    padding: 0.5em 0.667em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: small;
+    flex: 1; /* Allow buttons to take equal width */
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    margin: 0.444em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.speech-button:hover {
+    background-color: #161179;
+    transform: scale(1.05);
+}
+
+.speech-button.listening {
+    background-color: #161179;
+    cursor: not-allowed;
+}
+
+/* Speech Result */
+.speech-result {
+    margin-top: 1.111em;
+    color: #444;
+    font-size: 1em;
+    background: #F8F8F8;
+    padding: 0.833em;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.speech-result p {
+    margin: 0.444em 0;
+}
+
+/* Practice Section */
+.practice-section {
+    margin-top: 1.667em;
+    text-align: left;
+    background: #FFF5F0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.practice-title {
+    color: #EC5228;
+    font-size: 1.15em;
+    font-weight: bold;
+    margin-bottom: 1.389em;
+}
+
+/* Practice Textarea */
+.practice-textarea {
+    width: 100%;
+    height: 5.856em;
+    padding: 0.667em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.9em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Dropdown Select */
+.speech-select {
+    width: 100%;
+    padding: 0.667em;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-bottom: 1.111em;
+    background: #FFFFFF;
+}
+
+/* Buttons Container */
+.speech-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Speech Dropdown */
+.speech-select {
+    width: 98%;
+    padding: 0.667em;
+    margin-top: 0.555em;
+    border-radius: 8px;
+    border: 2px solid #EC5228; /* Primary Color */
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #EC5228; /* Primary Color */
+    background: white; /* Light Grey */
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* On hover */
+.speech-select:hover {
+    border-color: #D4411F; /* Darker Primary Color */
+}
+
+/* On focus */
+.speech-select:focus {
+    border-color: #D4411F;
+    box-shadow: 0 4px 8px rgba(236, 82, 40, 0.3);
+}
+
+/* Dropdown option styles */
+.speech-select option {
+    font-size: 16px;
+    padding: 0.555em;
+    background: #EFEFEF; /* Light Grey */
+    color: #EC5228; /* Primary Color */
+}
+
+/* When hovering over dropdown options */
+.speech-select option:hover {
+    background-color: #161179 !important; /* Green Effect */
+    color: #EFEFEF; /* Light Grey */
+}
+.speech-select {
+    appearance: none; /* Hide default dropdown arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23EC5228" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 0.889em;
+    padding-right: 1.944em; /* Space for arrow */
+}
+/* Grammar Check Button */
+.speech-button.grammar-check {
+    background-color: #3F7D58; /* Green */
+    color: #FFFFFF;
+}
+
+.speech-button.grammar-check:hover {
+    background-color: #2C5B42;
+}
+
+/* Grammar Output Box */
+.grammar-output {
+    margin-top: 1.111em;
+    padding: 0.833em;
+    border-radius: 8px;
+    background: #E8F5E9; /* Light Green */
+    border-left: 5px solid #3F7D58; /* Darker Green */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grammar-output h4 {
+    color: #3F7D58;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0.444em;
+}
+
+.grammar-output p {
+    color: #444;
+    font-size: 0.9em;
+}
+.speech-button img {
+    width: 1.3em;  /* Matches typical emoji size */
+    height: 1.3em;
+    vertical-align: middle;
+    margin-right: 2px; /* Adds spacing between the icon and text */
+}
+
+.language-select{
+    width: 98%;
+    padding: 0.67em;
+    margin-top: 0.7em;
+    border-radius: 8px;
+    border: 2px solid #EC5228; /* Primary Color */
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #EC5228; /* Primary Color */
+    background: white; /* Light Grey */
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.111em;
+}
+
+.select-container {
+    display: flex;
+    gap: 0.555em; /* Adds space between the selects */
+    align-items: center;
+}

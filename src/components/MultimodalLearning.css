@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'TAN-Nimbus';
+    src: url('C:/Users/KIIT/MEDIHACKS/emergency-dispatch-ai/public/Fonts/TAN-NIMBUS.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Maleha';
+    src: url('C:\Users\KIIT\Desktop\learnab\public\Maleha.ttf') format('truetype');
+}
+
+.multimodal-learning-container{
+    background-color: #f5f5f5;
+}
+.multimodal-learning-container .page-container {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 1.111em 0.555em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* Home Container */
+.multimodal-learning-container .home-container {
+    max-width: 61.111em;
+    width: 100%;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* Header Section */
+.multimodal-learning-container .header-section {
+    margin-bottom: 1.667em;
+}
+
+.multimodal-learning-container .title {
+    color: #EC5228;
+    font-weight: bold;
+    font-family: 'TAN-Nimbus', sans-serif;
+    font-size: 2.6rem;
+    margin-bottom: 0.3em;
+    margin-top: -1.889em;
+    padding-top: 2.478em;
+
+}
+
+.multimodal-learning-container .subtitle {
+    color: #666;
+    font-size: 1.3rem;
+}
+
+/* Content Section */
+.multimodal-learning-container .content-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.111em;
+}
+
+/* Card Container */
+.multimodal-learning-container .card-container {
+    flex: 1;
+    min-width: 17.778em;
+    max-width: 27.778em;
+
+
+}
+
+/* Card Style */
+.multimodal-learning-container .card-style {
+    background: linear-gradient(135deg, #FFF5F0, #FFE5D9);
+    border-radius: 15px;
+    padding: 50px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 2.222em 1.111em 6.667em 1.111em;
+
+}
+
+
+/* Section Titles */
+.multimodal-learning-container .section-title {
+    color: #EC5228 !important;
+    font-family: 'Maleha', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.833em;
+}
+.multimodal-learning-container .section-text{
+    color: #6c757d;
+    margin-top: -1.111em;
+    margin-bottom: 3.333em;
+
+}
+/* Feature List */
+.multimodal-learning-container .feature-list {
+    color: #444;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    list-style: none;
+    text-align: left;
+    margin-top: 2.222em;
+    padding: 0px;
+}
+
+.multimodal-learning-container .feature-list li {
+    margin-bottom: 1.667em; /* Space between list items */
+}
+
+/* Wrapping each item for better layout */
+.multimodal-learning-container .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.833em; /* Space between icon and text */
+    background: #f9f9f9; /* Light background for contrast */
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #EC5228;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+}
+
+/* Styling icons */
+.multimodal-learning-container .feature-icon {
+    width: 2.222em; /* Adjust icon size */
+    height: 2.222em;
+
+}
+
+
+/* Button Group */
+.multimodal-learning-container .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.833em;
+    margin-top: 1.111em;
+
+}
+
+/* Button Styles */
+.multimodal-learning-container .btn {
+    padding: 0.667em 1.111em;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-left: 1.111em;
+    max-width: 80% ;
+    cursor: pointer;
+
+}
+
+/* Individual Button Customizations */
+.multimodal-learning-container .vocabulary-btn {
+    background-color: white;
+    color: #FF5733;
+    border: 2px solid #FF5733;
+}
+
+.multimodal-learning-container .quizzes-btn {
+    background-color: white;
+    color: #4285F4;
+    border: 2px solid #4285F4;
+}
+
+.multimodal-learning-container .interactive-btn {
+    background-color: white ;
+    color: #4635B1;
+    border: 2px solid #4635B1;
+}
+
+.multimodal-learning-container .ai-btn {
+    background-color: white;
+    color: #E63946;
+    border: 2px solid #E63946;
+    margin-bottom: 50px;
+}
+
+/* Button Hover Effects */
+.multimodal-learning-container .vocabulary-btn:hover {
+    background-color: #FF5733;
+    color: white;
+}
+
+.multimodal-learning-container .quizzes-btn:hover {
+    background-color: #4285F4;
+    color: white;
+}
+
+.multimodal-learning-container .interactive-btn:hover {
+    background-color: #4635B1;
+    color: white;
+}
+
+.multimodal-learning-container .ai-btn:hover {
+    background-color: #E63946;
+    color: white;
+}
+
+
+.multimodal-learning-container .section-title img{
+    width: 1.9em;
+    height: 1.9em;
+    vertical-align: middle;
+    margin-bottom: 0.555em;
+}
+.multimodal-learning-container .feature-list img {
+    width: 2.2em;
+    height: 2.2em;
+    vertical-align: middle;
+    margin-right: 2px;
+}
