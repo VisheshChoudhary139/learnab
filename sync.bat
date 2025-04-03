@@ -10,11 +10,18 @@ git checkout -b %BRANCH_NAME% 2>NUL || git checkout %BRANCH_NAME%
 git add .
 git commit -m "Automated sync commit"
 
-git pull origin %BRANCH_NAME% --no-edit
+:: Check if branch exists on remote
+git ls-remote --exit-code origin %BRANCH_NAME%
 if %errorlevel% neq 0 (
-    echo "Merge conflict detected. Resolve conflicts and rerun the script."
-    pause
-    exit /b
+    echo "Branch %BRANCH_NAME% does not exist on remote. Creating it..."
+    git push --set-upstream origin %BRANCH_NAME%
+) else (
+    git pull origin %BRANCH_NAME% --no-edit
+    if %errorlevel% neq 0 (
+        echo "Merge conflict detected. Resolve conflicts and rerun the script."
+        pause
+        exit /b
+    )
 )
 
 git push origin %BRANCH_NAME%
