@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'TAN-Nimbus';
-    src: url('C:/Users/KIIT/MEDIHACKS/emergency-dispatch-ai/public/Fonts/TAN-NIMBUS.otf') format('opentype');
+    src: url('TAN-NIMBUS.otf') format('opentype');
 }
 @font-face {
     font-family: 'Maleha';
-    src: url('C:\Users\KIIT\Desktop\learnab\public\Maleha.ttf') format('truetype');
+    src: url('Maleha.ttf') format('truetype');
 }
 .progresspage .progress-container {
     background-color: #f5f5f5;
