@@ -32,7 +32,7 @@ export class Progress extends Component {
             <div className="progresspage">
                 <div className="progress-container">
                     <div className="container mt-4 text-center">
-                        <h1 className="progress-title">AI Progress Report <img src="./google-analytics.png"/>
+                        <h1 className="progress-title">Personalized Progress Report <img src="./google-analytics.png"/>
                         </h1>
                         <button onClick={this.handleReadAloud} className="read-aloud-btn">
                             <img src="./megaphone.png" alt="Read Aloud"/> Read Report Aloud

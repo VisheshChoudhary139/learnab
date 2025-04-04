@@ -1,4 +1,4 @@
-
+/* Font Imports */
 @font-face {
     font-family: 'TAN-Nimbus';
     src: url('TAN-NIMBUS.otf') format('opentype');
@@ -8,6 +8,7 @@
     src: url('Maleha.ttf') format('truetype');
 }
 
+/* Base Styles */
 .speech-container {
     background-color: #f5f5f5;
     min-height: 100vh;
@@ -30,6 +31,7 @@
     text-align: center;
     transition: transform 0.3s ease-in-out;
 }
+
 .speech-card h3 {
     margin-bottom: 3rem;
     text-align: center;
@@ -41,7 +43,6 @@
     position: relative;
 }
 
-
 /* Question Header */
 .speech-question {
     color: #EC5228;
@@ -50,11 +51,12 @@
     font-size: 1.222em;
 }
 
+/* Button Container */
 .speech-button-container {
     display: flex;
-    flex-wrap: nowrap;  /* Prevent wrapping */
-    justify-content: space-between; /* Evenly distribute buttons */
-    gap: 0.555em; /* Add spacing between buttons */
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.555em;
 }
 
 /* Speech Button */
@@ -66,11 +68,14 @@
     border: none;
     cursor: pointer;
     font-size: small;
-    flex: 1; /* Allow buttons to take equal width */
+    flex: 1;
     font-weight: bold;
     transition: background-color 0.3s ease-in-out, transform 0.2s;
     margin: 0.444em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .speech-button:hover {
@@ -81,6 +86,24 @@
 .speech-button.listening {
     background-color: #161179;
     cursor: not-allowed;
+}
+
+.speech-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Button Icons */
+.button-icon {
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.speech-button img:last-child {
+    margin-right: 0;
+    margin-left: 8px;
 }
 
 /* Speech Result */
@@ -97,6 +120,10 @@
 
 .speech-result p {
     margin: 0.444em 0;
+}
+
+.speech-result strong {
+    color: #161179;
 }
 
 /* Practice Section */
@@ -125,132 +152,184 @@
     border-radius: 8px;
     font-size: 0.9em;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    resize: vertical;
 }
 
-/* Dropdown Select */
-.speech-select {
-    width: 100%;
-    padding: 0.667em;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    margin-bottom: 1.111em;
-    background: #FFFFFF;
-}
-
-/* Buttons Container */
-.speech-button-container {
+/* Dropdown Selects */
+.select-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 0.555em;
+    align-items: center;
 }
 
-/* Speech Dropdown */
-.speech-select {
+.speech-select, .language-select {
     width: 98%;
     padding: 0.667em;
     margin-top: 0.555em;
     border-radius: 8px;
-    border: 2px solid #EC5228; /* Primary Color */
+    border: 2px solid #EC5228;
     font-size: 0.9em;
     font-weight: 500;
-    color: #EC5228; /* Primary Color */
-    background: white; /* Light Grey */
+    color: #EC5228;
+    background: white;
     outline: none;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* On hover */
-.speech-select:hover {
-    border-color: #D4411F; /* Darker Primary Color */
-}
-
-/* On focus */
-.speech-select:focus {
-    border-color: #D4411F;
-    box-shadow: 0 4px 8px rgba(236, 82, 40, 0.3);
-}
-
-/* Dropdown option styles */
-.speech-select option {
-    font-size: 16px;
-    padding: 0.555em;
-    background: #EFEFEF; /* Light Grey */
-    color: #EC5228; /* Primary Color */
-}
-
-/* When hovering over dropdown options */
-.speech-select option:hover {
-    background-color: #161179 !important; /* Green Effect */
-    color: #EFEFEF; /* Light Grey */
-}
-.speech-select {
-    appearance: none; /* Hide default dropdown arrow */
+    appearance: none;
     background-image: url('data:image/svg+xml;utf8,<svg fill="%23EC5228" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 0.889em;
-    padding-right: 1.944em; /* Space for arrow */
-}
-/* Grammar Check Button */
-.speech-button.grammar-check {
-    background-color: #3F7D58; /* Green */
-    color: #FFFFFF;
-}
-
-.speech-button.grammar-check:hover {
-    background-color: #2C5B42;
-}
-
-/* Grammar Output Box */
-.grammar-output {
-    margin-top: 1.111em;
-    padding: 0.833em;
-    border-radius: 8px;
-    background: #E8F5E9; /* Light Green */
-    border-left: 5px solid #3F7D58; /* Darker Green */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.grammar-output h4 {
-    color: #3F7D58;
-    font-size: 1em;
-    font-weight: bold;
-    margin-bottom: 0.444em;
-}
-
-.grammar-output p {
-    color: #444;
-    font-size: 0.9em;
-}
-.speech-button img {
-    width: 1.3em;  /* Matches typical emoji size */
-    height: 1.3em;
-    vertical-align: middle;
-    margin-right: 2px; /* Adds spacing between the icon and text */
-}
-
-.language-select{
-    width: 98%;
-    padding: 0.67em;
-    margin-top: 0.7em;
-    border-radius: 8px;
-    border: 2px solid #EC5228; /* Primary Color */
-    font-size: 0.95em;
-    font-weight: 500;
-    color: #EC5228; /* Primary Color */
-    background: white; /* Light Grey */
-    outline: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding-right: 1.944em;
     margin-bottom: 1.111em;
 }
 
-.select-container {
+.speech-select:hover, .language-select:hover {
+    border-color: #D4411F;
+}
+
+.speech-select:focus, .language-select:focus {
+    border-color: #D4411F;
+    box-shadow: 0 4px 8px rgba(236, 82, 40, 0.3);
+}
+
+.speech-select option, .language-select option {
+    font-size: 16px;
+    padding: 0.555em;
+    background: #EFEFEF;
+    color: #EC5228;
+}
+
+.speech-select option:hover, .language-select option:hover {
+    background-color: #161179 !important;
+    color: #EFEFEF;
+}
+
+/* Grammar Check Button */
+.check-grammar-button {
+    background-color: #3F7D58;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.check-grammar-button:hover {
+    background-color: #2C5B42;
+    transform: translateY(-2px);
+}
+
+/* Grammar Results */
+.grammar-results, .practice-feedback {
+    background-color: #E8F5E9;
+    border-radius: 8px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+    border-left: 4px solid #3F7D58;
+}
+
+.grammar-results h5, .practice-feedback h5 {
+    color: #3F7D58;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.corrected-text {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+/* Listening Indicator */
+.listening-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    background-color: #ff3b30;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(0.95); }
+}
+
+.listening-status {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f8f8f8;
+    border-radius: 5px;
     display: flex;
-    gap: 0.555em; /* Adds space between the selects */
     align-items: center;
+    font-weight: bold;
+}
+
+/* Warning Messages */
+.browser-support-warning, .mic-permission-warning {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.browser-support-warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+.mic-permission-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.error-message {
+    color: #D4411F;
+    background-color: #FFEBEE;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #D4411F;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .speech-card {
+        padding: 1.5rem;
+        max-width: 90%;
+    }
+    
+    .select-container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .speech-button {
+        min-width: 100%;
+    }
+    
+    .speech-question {
+        font-size: 1.4rem;
+    }
+}
+
+/* Accessibility Focus Styles */
+button:focus, select:focus, textarea:focus {
+    outline: 3px solid #161179;
+    outline-offset: 2px;
 }
