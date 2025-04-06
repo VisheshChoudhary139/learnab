@@ -15,10 +15,9 @@
 
 /* Title */
 .progresspage .progress-title {
-    padding-top: 1.111em;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    line-height: 1.5; /* Can use number, px, em, etc. */
+    margin: 40px;
+    line-height: 1.2; /* Can use number, px, em, etc. */
+
 
 }
 
@@ -28,7 +27,7 @@
     color: #ffffff;
     font-size: 1.1rem;
     margin: 1.4em;
-    margin-top: 1.6em;
+    margin-top: -0px;
     border-radius: 1.389em;
     border: none;
     cursor: pointer;
@@ -44,7 +43,7 @@
 .progresspage .feature-btn {
     background-color: #EC5228;
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.833em;
     width: 93%;
     border-radius: 10px;
@@ -53,7 +52,9 @@
     border: 2px solid #161179;
     box-shadow: 0 0 0 0 #161179;
     margin-top: 5px;
-    font-weight: 700;
+    font-family: 'Vortigra', sans-serif;
+
+
 }
 
 .progresspage .feature-btn:hover {
@@ -66,6 +67,7 @@
     background-color: #ffffff;
     padding: 1.111em;
     border-radius: 10px;
+
     text-align: center;
 }
 
@@ -81,12 +83,22 @@
 }
 
 .progress-title-container {
-    height: 400px;
+    height: auto;
     width: 90%;
     margin: 0 auto; /* ✅ This centers it horizontally */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow */
     border-radius: 10px;
     margin-bottom: 40px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #120f66  ,
+        #09073e  10px,
+        #120f66   10px,
+        #09073e  20px
+)
+#09073e ;
+    background-blend-mode: screen;
+
 
 }
 
@@ -100,21 +112,68 @@
     filter: brightness(70%); /* adjust to your liking */
     pointer-events: none; /* ensures the background doesn't block clicks */
 }
+
 .ai-highlight{
     color: #EC5228;
-    padding-top: 1.111em;
     font-family: 'TAN-Nimbus', sans-serif;
     font-size: 5rem;
-    letter-spacing: 1px;
+    letter-spacing: 3px;
     text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Increased shadow */
 
 }
 .ai-sub{
     color: white;
-    padding-top: 1.111em;
-    font-family: 'TAN-Nimbus', sans-serif;
+    padding-top: 0.5em;
+    font-family: 'Vortigra', sans-serif;
     font-size: 2.6rem;
     letter-spacing: 1px;
     text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Increased shadow */
 
+}
+
+/* Minimalist Sharp-Edge Table Styling */
+.table {
+    width: 93%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    border: 1px solid #EC5228;
+    margin: 20px auto; /* Centered horizontally */
+
+}
+
+.table th, .table td {
+    padding: 12px 16px;
+    border: 1px solid #EC5228;
+    text-align: left;
+}
+
+.table th {
+    background-color: white;
+    font-weight: bold;
+}
+
+.table tr:hover td {
+    background-color: #f0f0f0;
+}
+
+.performance-title, .select-feature-title{
+    font-family: 'Vortigra', sans-serif;
+    margin: 5px;
+    margin-bottom: 10px;
+}
+.sub-progress{
+    color: black;
+    font-weight: bold;
+    margin: 10px;
+}
+.progress-description{
+    color: white;
+    font-family: 'Vortigra', sans-serif;
+    text-align: justify;
+    margin-right: 200px;
+    margin-bottom: 40px;
+    margin-left: 200px;
 }

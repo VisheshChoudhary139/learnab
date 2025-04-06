@@ -77,37 +77,75 @@ export class Progress extends Component {
 
         return (
             <>
-                <h1>Performance Overview</h1>
-                <p>You’ve completed {validCompletedLessons.length} lesson(s) out of {lessons.length}.</p>
-                <p>Total quiz questions attempted: {totalQuestions}</p>
-                <p>Correct answers: {totalCorrect} / {totalQuestions}</p>
-                <p>Accuracy: {percentage.toFixed(1)}%</p>
-                <p><strong>{feedback}</strong></p>
+                <h1 className="performance-title">Performance Overview</h1>
+                <table className="table">
+                    <tbody>
+                    <tr>
+                        <th>Lessons Completed</th>
+                        <td>{validCompletedLessons.length} / {lessons.length}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Quiz Questions</th>
+                        <td>{totalQuestions}</td>
+                    </tr>
+                    <tr>
+                        <th>Correct Answers</th>
+                        <td>{totalCorrect} / {totalQuestions}</td>
+                    </tr>
+                    <tr>
+                        <th>Accuracy</th>
+                        <td>{percentage.toFixed(1)}%</td>
+                    </tr>
+                    <tr>
+                        <th>Vocabulary Game Score</th>
+                        <td>
+                            Crossword: {progressData.vocabularyProgress?.score?.crossword || 0},
+                            Hangman: {progressData.vocabularyProgress?.score?.hangman || 0}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Feedback</th>
+                        <td><strong>{feedback}</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
             </>
         );
     };
 
 
     getRecommendedLessons = () => {
-        const { progressData, lessons } = this.state;
+        const {progressData, lessons} = this.state;
         const completed = progressData.lessonProgress.completedLessons;
 
         const remaining = lessons.filter(l => !completed.includes(l.id));
 
         return (
             <>
-                <h1>Recommended Lessons</h1>
+                <h1 className="performance-title">Recommended Lessons</h1>
                 <p>Here are the lessons you haven't completed yet:</p>
-                <ul>
-                    {remaining.map(lesson => (
-                        <li key={lesson.id}>
-                            <strong>{lesson.title}</strong>: This lesson can help you with {lesson.title.split(":")[0].toLowerCase()} skills.
-                        </li>
+                <table className="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Lesson Title</th>
+                        <th>Skill Area</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {remaining.map((lesson, index) => (
+                        <tr key={lesson.id}>
+                            <td>{index + 1}</td>
+                            <td>{lesson.title}</td>
+                            <td>{lesson.title.split(":")[0].toLowerCase()}</td>
+                        </tr>
                     ))}
-                </ul>
+                    </tbody>
+                </table>
             </>
         );
     };
+
 
     getStrengthsWeaknesses = () => {
         const { progressData, lessons } = this.state;
@@ -130,38 +168,86 @@ export class Progress extends Component {
 
         return (
             <>
-                <h1>Strengths & Weaknesses</h1>
+                <h1 className="performance-title">Strengths & Weaknesses</h1>
                 <p><strong>Strengths:</strong></p>
-                <ul>
-                    {strengths.map(l => (
-                        <li key={l.title}>{l.title} - {l.accuracy}%</li>
+                <table className="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Lesson Title</th>
+                        <th>Accuracy</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {strengths.map((l, index) => (
+                        <tr key={l.title}>
+                            <td>{index + 1}</td>
+                            <td>{l.title}</td>
+                            <td>{l.accuracy}%</td>
+                        </tr>
                     ))}
-                </ul>
+                    </tbody>
+                </table>
+
                 <p><strong>Areas to Improve:</strong></p>
-                <ul>
-                    {weaknesses.map(l => (
-                        <li key={l.title}>{l.title} - {l.accuracy}%</li>
+                <table className="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Lesson Title</th>
+                        <th>Accuracy</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {weaknesses.map((l, index) => (
+                        <tr key={l.title}>
+                            <td>{index + 1}</td>
+                            <td>{l.title}</td>
+                            <td>{l.accuracy}%</td>
+                        </tr>
                     ))}
-                </ul>
+                    </tbody>
+                </table>
+                <p><strong>Vocabulary Strengths:</strong></p>
+                <table className="table">
+                    <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Score</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Crossword</td>
+                        <td>{progressData.vocabularyProgress?.score?.crossword || 0}</td>
+                    </tr>
+                    <tr>
+                        <td>Hangman</td>
+                        <td>{progressData.vocabularyProgress?.score?.hangman || 0}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </>
         );
     };
 
+
     getProgressMilestones = () => {
-        const { progressData, lessons } = this.state;
+        const {progressData, lessons} = this.state;
         const completedCount = progressData.lessonProgress.completedLessons.length;
         const totalCount = lessons.length;
         const percentDone = (completedCount / totalCount) * 100;
 
         return (
             <>
-                <h1>Progress Milestones</h1>
+                <h1 className="performance-title">Progress Milestones</h1>
                 <div className="progress">
-                    <div className="progress-bar" style={{ width: `${percentDone}%` }}>
+                    <div className="progress-bar ai-progress" style={{ width: `${percentDone}%` }}>
                         {percentDone.toFixed(1)}%
                     </div>
                 </div>
-                <p>{completedCount} of {totalCount} lessons completed.</p>
+                <p className="sub-progress">{completedCount} of {totalCount} lessons completed.</p>
             </>
         );
     };
@@ -183,7 +269,7 @@ export class Progress extends Component {
             case "Next Steps":
                 return <p>Coming soon!</p>;
             default:
-                return <h2>Select a feature to view details</h2>;
+                return <h2 className="select-feature-title">Select a feature to view details</h2>;
         }
     };
 
@@ -204,15 +290,12 @@ export class Progress extends Component {
                          style={{overflow: "hidden"}}>
                         <div style={{position: "relative", zIndex: 1}}>
                             <h1 className="progress-title">
-                                <span className="ai-highlight">AI</span> <br />
                                 <span className="ai-sub">Progress Report</span>
                             </h1>
+                            <p className="progress-description">Welcome to your Progress Report. Here, you can explore a detailed breakdown of your learning progress. Use the buttons below to view your Performance Overview, discover Recommended Lessons based on what you haven’t completed, analyze your Strengths & Weaknesses across topics, and track your Progress Milestones. Each section gives you insights to help improve and stay on track. You can also have the report read aloud using the megaphone button above.</p>
                             <button onClick={this.handleReadAloud} className="read-aloud-btn">
                                 <img src="./megaphone.png" alt="Read Aloud"/> Read Report Aloud
                             </button>
-                        </div>
-                        <div className="staircase-bg">
-                            <StaircaseAnimation/>
                         </div>
                     </div>
 
