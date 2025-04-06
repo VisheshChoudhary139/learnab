@@ -15,11 +15,11 @@
 
 /* Title */
 .progresspage .progress-title {
-    color: #EC5228;
     padding-top: 1.111em;
-    font-family: 'TAN-Nimbus', sans-serif;
-    font-size: 2.6rem;
-    letter-spacing: 1px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5; /* Can use number, px, em, etc. */
+
 }
 
 /* Read Aloud Button */
@@ -27,14 +27,17 @@
     background-color: #EC5228 !important;
     color: #ffffff;
     font-size: 1.1rem;
-    margin: 2.222em;
+    margin: 1.4em;
+    margin-top: 1.6em;
     border-radius: 1.389em;
     border: none;
     cursor: pointer;
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Increased shadow */
+
 }
 
 .progresspage .read-aloud-btn:hover {
-    background-color: #161179 !important;
+    background-color: #261FB3 !important;
 }
 
 /* Feature Buttons */
@@ -43,12 +46,13 @@
     color: #ffffff;
     font-size: 1.2rem;
     padding: 0.833em;
-    width: 100%;
+    width: 93%;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    border: 4px solid #161179;
+    border: 2px solid #161179;
     box-shadow: 0 0 0 0 #161179;
+    margin-top: 5px;
     font-weight: 700;
 }
 
@@ -70,4 +74,47 @@
     height: 1.7em;
     vertical-align: middle;
     margin-top: -0.8em;
+}
+.progress-title, .read-aloud-btn {
+    position: relative;
+    z-index: 2;
+}
+
+.progress-title-container {
+    height: 400px;
+    width: 90%;
+    margin: 0 auto; /* ✅ This centers it horizontally */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+    border-radius: 10px;
+    margin-bottom: 40px;
+
+}
+
+.staircase-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    filter: brightness(70%); /* adjust to your liking */
+    pointer-events: none; /* ensures the background doesn't block clicks */
+}
+.ai-highlight{
+    color: #EC5228;
+    padding-top: 1.111em;
+    font-family: 'TAN-Nimbus', sans-serif;
+    font-size: 5rem;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Increased shadow */
+
+}
+.ai-sub{
+    color: white;
+    padding-top: 1.111em;
+    font-family: 'TAN-Nimbus', sans-serif;
+    font-size: 2.6rem;
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.8); /* Increased shadow */
+
 }

@@ -98,6 +98,14 @@ export class Vocabulary extends Component {
             { word: "PYTHON", clue: "A popular programming language" },
             { word: "BRIDGE", clue: "Structure that connects two places" }
         ],
+        score: {
+            crossword: 0,
+            hangman: 0,
+            rhymeBattle: {
+                player1: 0,
+                player2: 0
+            }
+        },
 
         // Game state variables
         currentWordIndex: 0,
@@ -175,6 +183,34 @@ export class Vocabulary extends Component {
             this.setState({ gameOver: true, winner: player === 1 ? "Player 2" : "Player 1" });
         }
     };
+    saveScoreToBackend = () => {
+        const scoreData = {
+            score: {
+                crossword: this.state.score.crossword,
+                hangman: this.state.score.hangman,
+                rhymeBattle: this.state.rhymeWords.length
+            },
+            timestamp: new Date().toISOString()
+        };
+
+
+        fetch('http://localhost:5000/api/vocabulary/progress', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include', // <-- this sends the session cookie!
+            body: JSON.stringify(scoreData),
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('✅ Score posted to backend:', data);
+            })
+            .catch(err => {
+                console.error('❌ Error posting score:', err);
+            });
+
+    };
 
 
     doWordsRhyme = (word1, word2) => {
@@ -208,17 +244,37 @@ export class Vocabulary extends Component {
     handleGuess = (letter) => {
         this.setState((prevState) => {
             const { currentWordIndex, hangmanWords, guessedLetters, remainingAttempts } = prevState;
-            if (remainingAttempts === 0) return prevState; // Stop game at 0 attempts
-
             const word = hangmanWords[currentWordIndex].word;
+
+            if (remainingAttempts === 0 || guessedLetters.includes(letter)) return prevState;
+
             const newGuessedLetters = [...guessedLetters, letter];
+            const isCorrectGuess = word.includes(letter);
+
+            const allLettersGuessed = word.split("").every(char =>
+                [...newGuessedLetters].includes(char)
+            );
+
+            let updatedScore = prevState.score.hangman;
+            if (allLettersGuessed && isCorrectGuess) {
+                updatedScore += 10;
+                setTimeout(() => this.saveScoreToBackend(), 0); // ← Auto-send on win
+            }
+            if (!isCorrectGuess && remainingAttempts - 1 === 0) {
+                setTimeout(() => this.saveScoreToBackend(), 0); // ← Auto-send on loss
+            }
 
             return {
                 guessedLetters: newGuessedLetters,
-                remainingAttempts: word.includes(letter) ? remainingAttempts : remainingAttempts - 1
+                remainingAttempts: isCorrectGuess ? remainingAttempts : remainingAttempts - 1,
+                score: {
+                    ...prevState.score,
+                    hangman: updatedScore
+                }
             };
         });
     };
+
 
     revealHangmanAnswer = () => {
         this.setState((prevState) => ({
@@ -236,8 +292,25 @@ export class Vocabulary extends Component {
 
     checkAnswers = () => {
         const { crosswordGrid, userGrid } = this.state;
-        return JSON.stringify(crosswordGrid) === JSON.stringify(userGrid);
+        const isCorrect = JSON.stringify(crosswordGrid) === JSON.stringify(userGrid);
+
+        if (isCorrect) {
+            this.setState(prevState => {
+                const updatedState = {
+                    score: {
+                        ...prevState.score,
+                        crossword: prevState.score.crossword + 50
+                    }
+                };
+                setTimeout(() => this.saveScoreToBackend(), 0); // ← Auto-send to backend
+                return updatedState;
+            });
+        }
+
+
+        return isCorrect;
     };
+
 
     revealAnswers = () => {
         this.setState({ userGrid: this.state.crosswordGrid.map(row => row.map(cell => (cell !== null ? cell : ""))) });
@@ -262,6 +335,14 @@ export class Vocabulary extends Component {
                             <img src="./megaphone.png"/> Read Aloud
                         </button>
                     </div>
+                    <div className="scoreboard">
+                        <h4>Scoreboard</h4>
+                        <div className="score-items">
+                            <p><img src="./crossword.png"/> Crossword: {this.state.score.crossword}</p>
+                            <p><img src="./capital.png"/> Hangman: {this.state.score.hangman}</p>
+                        </div>
+                    </div>
+
 
                     <div className="crossword-section">
 

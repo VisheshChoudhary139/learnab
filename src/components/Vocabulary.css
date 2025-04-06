@@ -322,7 +322,7 @@
     height: 1.3em;
     vertical-align: middle;
     margin-bottom: 15px;
-    margin-left: 2px;
+    margin-left: 10px;
 }
 .vocabulary-container img {
     width: 1.3em;  /* Matches typical emoji size */
@@ -490,6 +490,7 @@
     height: 1.3em;
     vertical-align: middle;
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 .show-answer-button {
 
@@ -734,4 +735,52 @@
     box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
     0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
     0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+.scoreboard {
+    background-color: #FFF5F0;
+    border: 2px solid #EC5228;
+    border-radius: 10px;
+    padding: 25px 40px;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #333;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreboard h4 {
+    font-size: 1.8rem;
+    font-family: 'TAN-Nimbus', sans-serif;
+    color: #EC5228;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.score-items {
+    display: flex;
+    gap: 22em;
+    justify-content: center;
+    flex-wrap: wrap; /* allows wrapping on small screens */
+}
+
+.score-items p {
+    font-size: 1.3rem;
+    margin: 0;
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+
+}
+
+.score-items img {
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }

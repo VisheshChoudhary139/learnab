@@ -239,7 +239,21 @@ const LessonPage = () => {
       completedLessons: Array.from(newCompletedLessons),
       points: newPoints,
     };
+
+    // Optional: local session storage
     sessionStorage.setItem("lessonProgress", JSON.stringify(progressData));
+
+    // ✅ Send to backend with credentials
+    fetch("http://localhost:5000/api/lessons/progress", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(progressData),
+      credentials: "include", // ✅ THIS IS THE KEY LINE
+    }).catch((error) => {
+      console.error("Failed to save progress to server:", error);
+    });
   };
 
   const handleAnswerClick = (questionIndex, selected) => {
@@ -289,99 +303,108 @@ const LessonPage = () => {
     setQuizFeedback({});
   };
 
-
   const resetProgress = () => {
     setCompletedLessons(new Set());
     setPoints(0);
     sessionStorage.removeItem("lessonProgress");
+
+    // ✅ Clear progress on the server with credentials included
+    fetch("http://localhost:5000/api/lessons/progress", {
+      method: "DELETE",
+      credentials: "include", // <-- Important!
+    }).catch((error) => {
+      console.error("Failed to reset progress on server:", error);
+    });
   };
+
+
 
   return (
       <div className="lesson-page">
-      <div className="lesson-container">
-        {/* Sidebar Navigation */}
-        <div className="sidebar">
-          <h2>Lesson <br></br>Outline</h2>
-          {lessonsData.map((lesson, index) => (
-              <div
-                  key={lesson.id}
-                  className={`lesson-item ${completedLessons.has(lesson.id) ? "completed" : ""}`}
-                  onClick={() => {
-                    setCurrentLessonIndex(index);
-                    resetQuiz();
-                  }}
-              >
-                {lesson.title}
-              </div>
-          ))}
-        </div>
-
-        {/* Lesson Content */}
-        <div className="lesson-content">
-          <h2>{lessonsData[currentLessonIndex].title}</h2>
-          <div className="video-container">
-            <iframe
-                width="100%"
-                height="315"
-                src={lessonsData[currentLessonIndex].videoUrl}
-                title="Lesson Video"
-                frameBorder="0"
-                allowFullScreen
-            ></iframe>
-          </div>
-
-          {/* Quiz Section */}
-          <div className="quiz-section">
-            <h3>Quiz</h3>
-            {lessonsData[currentLessonIndex].quiz.map((q, index) => (
-                <div key={index} className="quiz-question">
-                  <p>{q.question}</p>
-                  {q.options.map((option, optIndex) => (
-                      <div
-                          key={optIndex}
-                          className={`quiz-option ${selectedAnswers[index] === option ? "selected" : ""}`}
-                          onClick={() => handleAnswerClick(index, option)}
-                      >
-                        {option}
-                      </div>
-                  ))}
-                  <p className={`quiz-feedback ${quizFeedback[index]?.includes("Correct") ? "correct" : "incorrect"}`}>
-                    {quizFeedback[index]}
-                  </p>
+        <div className="lesson-container">
+          {/* Sidebar Navigation */}
+          <div className="sidebar">
+            <h2>Lesson <br></br>Outline</h2>
+            {lessonsData.map((lesson, index) => (
+                <div
+                    key={lesson.id}
+                    className={`lesson-item ${completedLessons.has(lesson.id) ? "completed" : ""}`}
+                    onClick={() => {
+                      setCurrentLessonIndex(index);
+                      resetQuiz();
+                    }}
+                >
+                  {lesson.title}
                 </div>
             ))}
           </div>
 
-          {/* Progress Dashboard */}
-          <div className="progress-dashboard">
-            <h4>Progress Dashboard</h4>
-            <p>Points Earned: {points}</p>
-            <button onClick={resetProgress} className="reset-button">Reset Progress</button>
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="lesson-navigation">
-            <div className="nav-button-container">
-              <button
-                  onClick={goToPreviousLesson}
-                  className="nav-button prev-button"
-                  disabled={currentLessonIndex === 0}
-              >
-                Previous
-              </button>
+          {/* Lesson Content */}
+          <div className="lesson-content">
+            <h2>{lessonsData[currentLessonIndex].title}</h2>
+            <div className="video-container">
+              <iframe
+                  width="100%"
+                  height="315"
+                  src={lessonsData[currentLessonIndex].videoUrl}
+                  title="Lesson Video"
+                  frameBorder="0"
+                  allowFullScreen
+              ></iframe>
             </div>
-            <div className="nav-button-container">
-              <button
-                  onClick={goToNextLesson}
-                  className="nav-button next-button"
-                  disabled={currentLessonIndex === lessonsData.length - 1}
-              >
-                Next
-              </button>
+
+            {/* Quiz Section */}
+            <div className="quiz-section">
+              <h3>Quiz</h3>
+              {lessonsData[currentLessonIndex].quiz.map((q, index) => (
+                  <div key={index} className="quiz-question">
+                    <p>{q.question}</p>
+                    {q.options.map((option, optIndex) => (
+                        <div
+                            key={optIndex}
+                            className={`quiz-option ${selectedAnswers[index] === option ? "selected" : ""}`}
+                            onClick={() => handleAnswerClick(index, option)}
+                        >
+                          {option}
+                        </div>
+                    ))}
+                    <p className={`quiz-feedback ${quizFeedback[index]?.includes("Correct") ? "correct" : "incorrect"}`}>
+                      {quizFeedback[index]}
+                    </p>
+                  </div>
+              ))}
+            </div>
+
+            {/* Progress Dashboard */}
+            <div className="progress-dashboard">
+              <h4>Progress Dashboard</h4>
+              <p>Points Earned: {points}</p>
+              <button onClick={resetProgress} className="reset-button">Reset Progress</button>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="lesson-navigation">
+              <div className="nav-button-container">
+                <button
+                    onClick={goToPreviousLesson}
+                    className="nav-button prev-button"
+                    disabled={currentLessonIndex === 0}
+                >
+                  Previous
+                </button>
+              </div>
+              <div className="nav-button-container">
+                <button
+                    onClick={goToNextLesson}
+                    className="nav-button next-button"
+                    disabled={currentLessonIndex === lessonsData.length - 1}
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
   );
 };
