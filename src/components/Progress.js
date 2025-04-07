@@ -137,7 +137,7 @@ export class Progress extends Component {
                         <tr key={lesson.id}>
                             <td>{index + 1}</td>
                             <td>{lesson.title}</td>
-                            <td>{lesson.title.split(":")[0].toLowerCase()}</td>
+                            <td>{lesson.title.split(":")[0].toUpperCase()}</td>
                         </tr>
                     ))}
                     </tbody>
@@ -298,7 +298,6 @@ export class Progress extends Component {
                             </button>
                         </div>
                     </div>
-
 
                     <div className="container mt-4">
                         <div className="row">
