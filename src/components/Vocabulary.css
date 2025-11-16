@@ -1,0 +1,737 @@
+@font-face {
+    font-family: 'TAN-Nimbus';
+    src: url('TAN-NIMBUS.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Maleha';
+    src: url('Maleha.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Vortigra';
+    src: url('Vortigra.otf') format('opentype');
+}
+
+.vocabulary-container {
+    background-color: #f5f5f5; /* Matched lesson-container background */
+    min-height: 100vh;
+    padding-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Back Button */
+.back-button {
+    background-color: transparent;
+    border: 1px solid #EC5228;
+    color: #EC5228;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: rgba(236, 82, 40, 0.3);
+}
+
+/* Title */
+.vocabulary-title {
+    color: #EC5228;
+    font-weight: bold;
+    font-size: 2.5rem;
+    font-family: 'TAN-Nimbus', sans-serif;
+    letter-spacing: 1px;
+    margin-top: -50px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+/* Description */
+.vocabulary-description {
+    color: #666666;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Read Aloud Button */
+.read-aloud-button {
+    background-color: #EC5228;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.read-aloud-button:hover {
+    background-color: #261FB3;
+}
+
+/* Crossword Section */
+.crossword-section {
+    text-align: center;
+    margin-top: 30px;
+    background: #FFF5F0;
+    padding: 50px;
+    margin-left: 70px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    min-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crossword-title {
+    color: #EC5228;
+    font-size: 2rem;  /* Increased size */
+    font-weight: 800;  /* Extra bold */
+    text-transform: uppercase; /* Optional: Makes it stand out more */
+}
+
+.crossword-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: -10px;
+
+}
+
+/* Crossword Container */
+.crossword-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+/* Hints Section */
+.crossword-hints {
+    text-align: left;
+    max-width: 400px;
+}
+
+.crossword-hints h3 {
+    color: #EC5228;
+    font-size: 1.5rem;
+    font-family: 'Vortigra', sans-serif;
+    margin-bottom: 10px;
+}
+
+.crossword-hints ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.crossword-hints li {
+    margin-bottom: 5px;
+}
+
+/* Crossword Grid */
+.crossword-grid {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.crossword-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Crossword Cells */
+.crossword-cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    border: 2px solid #EC5228;
+    border-radius: 5px;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.crossword-cell:focus {
+    background-color: #fddca9;
+}
+
+/* Check Button */
+.check-button {
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-top: 20px;
+
+}
+
+.check-button:hover {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.check-button:active{
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+/* Show Answers Button */
+.show-answers-button {
+
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-top: 20px;
+
+}
+
+.show-answers-button:hover {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+.show-answers-button:active{
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+/* Solid Blocks (Null Boxes) */
+.solid-block {
+    width: 40px;
+    height: 40px;
+    background-color: #EC5228;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+/* Updated Button Layout */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+/* Reset Button */
+.reset-buttonn {
+
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-top: 20px;
+
+}
+
+.reset-buttonn:hover {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+.reset-buttonn:active{
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+.crossword-section img {
+    width: 1.3em;  /* Matches typical emoji size */
+    height: 1.3em;
+    vertical-align: middle;
+    margin-bottom: 15px;
+    margin-left: 2px;
+}
+.vocabulary-container img {
+    width: 1.3em;  /* Matches typical emoji size */
+    height: 1.3em;
+    vertical-align: middle;
+
+}
+
+/* Hangman Section */
+.hangman-section {
+    text-align: center;
+    margin-top: 50px;
+    background: #FFF5F0;
+    padding: 50px;
+    margin-left: 70px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    min-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Hangman Title */
+.hangman-title {
+    color: #EC5228;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Hangman Clue */
+.hangman-clue {
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Hangman Word Display */
+.hangman-word {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.letter-box {
+    width: 45px;
+    height: 50px;
+    border-bottom: 3px solid #EC5228;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Hangman Letter Buttons */
+.hangman-letters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 600px;
+}
+
+.letter-button {
+    width: 40px;
+    height: 40px;
+    font-family: 'Vortigra', sans-serif;
+    background-color: white;
+    color: #EC5228;
+    border: 2px solid #EC5228; /* Added border with #EC5228 */
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+/* Hover effect */
+.letter-button:hover {
+    background: linear-gradient(135deg, #FF6A40, #EC5228); /* Brighter gradient on hover */
+    transform: scale(1.1); /* Slightly enlarges on hover */
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Disabled button (when letter already guessed) */
+.letter-button:disabled {
+    background: #aaa; /* Greyed out */
+    border: 2px solid #aaa; /* Added border with #EC5228 */
+    color: white;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.6;
+}
+
+/* Active button when clicked */
+.letter-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Remaining Attempts */
+.hangman-attempts {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #EC5228;
+    margin-top: 40px;
+}
+
+/* Restart Button */
+.restart-hangman {
+
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-top: 20px;
+
+}
+
+.restart-hangman:hover {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.restart-hangman:active{
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+/* Hangman Icon */
+.hangman-section img {
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+.show-answer-button {
+
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-top: 20px;
+}
+
+.show-answer-button:hover {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.show-answer-button:active{
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+.hangman-button-group {
+    display: flex;
+    gap: 15px;  /* Space between buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Rhyme Starts */
+.rhyme-battle-section {
+    text-align: center;
+    margin-top: 50px;
+    background: #FFF5F0;
+    padding: 50px;
+    margin-left: 70px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    min-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rhyme-title {
+    color: #EC5228;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.rhyme-instructions {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.rhyme-history ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rhyme-history li {
+    font-size: 1.2rem;
+    color: #EC5228;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #EC5228;
+    border-radius: 5px;
+    background: white;
+}
+
+.rhyme-inputs {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 60px; /* Adds spacing between player sections */
+}
+
+
+.player-section {
+    text-align: center;
+}
+
+.rhyme-textbox {
+    padding: 8px;
+    font-size: 1.2rem;
+    border: 2px solid #EC5228;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.rhyme-submit-button {
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.1rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-left: 15px;
+}
+
+.rhyme-submit-button:disabled {
+    background-color: lightgray;
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 darkgrey, /* Slight darker top shadow */
+    0 0.25em 0 darkgrey, /* Middle shadow */
+    0 0.375em 0 darkgrey, /* Deeper shadow */
+    0 0.5em 0 darkgrey, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    cursor: not-allowed;
+}
+
+.rhyme-submit-button:hover:not(:disabled) {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.rhyme-submit-button:active:not(:disabled) {
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+.rhyme-winner {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #EC5228;
+}
+
+.restart-button {
+    background-color: #EC5228;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.restart-button:hover {
+    background-color: #c6411f;
+}
+
+.player-section h3{
+    font-family: 'Vortigra', sans-serif;
+}
+.rhyme-history  h3{
+    font-family: 'Vortigra', sans-serif;
+    padding-top: 15px;
+}
+
+.language-toggle button{
+    font: inherit;
+    background-color: #EC5228; /* Updated to EC5228 */
+    border: 0;
+    color: #ffffff; /* White text for contrast */
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 rgba(255, 255, 255, 0.5);
+
+    /* 3D Box Shadow Effect */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.4), /* Inner highlight */
+    0 0.125em 0 #d44921, /* Slight darker top shadow */
+    0 0.25em 0 #c0421e, /* Middle shadow */
+    0 0.375em 0 #a83718, /* Deeper shadow */
+    0 0.5em 0 #902f14, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
+
+    transition: 0.15s ease;
+    cursor: pointer;
+
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+.language-toggle button:hover {
+    background-color: #261FB3; /* Dark blue on hover */
+    box-shadow: inset 0 0.125em 0 rgba(255, 255, 255, 0.3), /* Inner highlight */
+    0 0.125em 0 #161179, /* Slight darker top shadow */
+    0 0.25em 0 #161179, /* Middle shadow */
+    0 0.375em 0 #161179, /* Deeper shadow */
+    0 0.5em 0 #161179, /* Deepest shadow for 3D effect */
+    0 0.5em 0.5em rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+.language-toggle button:active {
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+    0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+    0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
