@@ -214,6 +214,15 @@ const Home = () => {
                                         <p>Earn exciting rewards and monitor your daily progress. .</p>
                                     </div>
                                 </div>
+
+                                <div className="feature">
+                                        <img src="emotion.png" alt="Emotion Detector" />
+                                        <h3>Emotion Detector</h3>
+                                        <div className="feature-text">
+                                            <p>Analyze emotions in real-time using AI-powered facial recognition with CNN</p>
+                                        </div>
+                                </div>
+
                             </div>
                         </div>
                         {/* Customer Reviews */}
@@ -320,6 +329,20 @@ const Home = () => {
                                             experience.</p>
                                     </div>
                                 </div>
+                                <div className="quick-feature">
+                                    <a 
+                                        href="https://emotiondetector-alpha.vercel.app/" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="quick-feature-button"
+                                    >
+                                        Emotion Detector
+                                    </a>
+                                    <div className="quick-feature-text">
+                                        <p>Detect emotions in real-time using advanced AI-based facial recognition with CNN</p>
+                                    </div>
+                                </div>
+
                             </div>
                         </section>
 

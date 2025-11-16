@@ -539,6 +539,37 @@
     box-shadow: 0 0 0 0 #161179;
 }
 
+.quick-feature-button {
+    background-color: #EC5228;       /* same orange */
+    color: white;                    /* white text */
+    border-radius: 1em;              /* same rounded corners */
+    font-size: 17px;
+    font-weight: 600;
+    padding: 1em 2em;                /* same padding */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #161179;       /* same blue border */
+    box-shadow: 0 0 0 0 #161179;     /* default no shadow */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    text-decoration: none;           /* for <a> tag */
+}
+
+.quick-feature-button:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 4px 10px 0 0 #161179;    /* same hover shadow */
+    background-color: #EC5228;           /* keep same color */
+}
+
+.quick-feature-button:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 #161179;
+}
+
 
 .home-page .quick-feature-text {
     text-align: center;

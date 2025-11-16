@@ -69,6 +69,14 @@ export class Navbar extends Component {
                           Multimodal Learning
                         </button>
                       </li>
+                      <li>
+                        <hr className="dropdown-divider" />
+                      </li>
+                      <li>
+                      <a className="dropdown-item"  href="https://emotiondetector-alpha.vercel.app/" target="_blank" rel="noopener noreferrer">
+                          Emotion Detector
+                      </a>
+                    </li>
                     </ul>
                   </li>
                   <li className="nav-item">
